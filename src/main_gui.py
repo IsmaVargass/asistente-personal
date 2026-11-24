@@ -8,34 +8,69 @@ Centro: iLERNA
 Autor: Ismael Vargas
 """
 
+import sys
+from pathlib import Path
 import tkinter as tk
 from tkinter import ttk, messagebox
 
+# Garantizamos que el directorio src/ y la raíz del proyecto estén en sys.path
+BASE_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = BASE_DIR.parent
+for path_entry in (str(BASE_DIR), str(PROJECT_ROOT)):
+    if path_entry not in sys.path:
+        sys.path.insert(0, path_entry)
+
 # Reutilización directa de la biblioteca central de funciones lógicas
-from funciones import (
-    calcular_precio_final,
-    desglosar_ticket,
-    sumar_gastos,
-    calcular_presupuesto_restante,
-    repartir_cuenta,
-    resumen_gastos,
-    convertir_temperatura,
-    convertir_tiempo,
-    convertir_distancia,
-    añadir_contacto,
-    buscar_contactos,
-    eliminar_contacto,
-    ordenar_contactos,
-    registrar_producto,
-    buscar_producto,
-    actualizar_stock,
-    obtener_alertas_stock_bajo,
-    calcular_factorial,
-    calcular_fibonacci,
-    calcular_mcd,
-    calcular_estadisticas_completas,
-    filtrar_lista_numeros
-)
+try:
+    from funciones import (
+        calcular_precio_final,
+        desglosar_ticket,
+        sumar_gastos,
+        calcular_presupuesto_restante,
+        repartir_cuenta,
+        resumen_gastos,
+        convertir_temperatura,
+        convertir_tiempo,
+        convertir_distancia,
+        añadir_contacto,
+        buscar_contactos,
+        eliminar_contacto,
+        ordenar_contactos,
+        registrar_producto,
+        buscar_producto,
+        actualizar_stock,
+        obtener_alertas_stock_bajo,
+        calcular_factorial,
+        calcular_fibonacci,
+        calcular_mcd,
+        calcular_estadisticas_completas,
+        filtrar_lista_numeros
+    )
+except ModuleNotFoundError:
+    from src.funciones import (
+        calcular_precio_final,
+        desglosar_ticket,
+        sumar_gastos,
+        calcular_presupuesto_restante,
+        repartir_cuenta,
+        resumen_gastos,
+        convertir_temperatura,
+        convertir_tiempo,
+        convertir_distancia,
+        añadir_contacto,
+        buscar_contactos,
+        eliminar_contacto,
+        ordenar_contactos,
+        registrar_producto,
+        buscar_producto,
+        actualizar_stock,
+        obtener_alertas_stock_bajo,
+        calcular_factorial,
+        calcular_fibonacci,
+        calcular_mcd,
+        calcular_estadisticas_completas,
+        filtrar_lista_numeros
+    )
 
 
 class AsistentePersonalGUI:

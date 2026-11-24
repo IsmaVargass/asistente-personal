@@ -8,36 +8,74 @@ Autor: Ismael Vargas
 """
 
 import sys
+from pathlib import Path
 from datetime import datetime
 
-from funciones import (
-    pedir_numero,
-    pedir_entero,
-    pedir_texto,
-    pedir_opcion_menu,
-    calcular_precio_final,
-    desglosar_ticket,
-    sumar_gastos,
-    calcular_presupuesto_restante,
-    repartir_cuenta,
-    resumen_gastos,
-    convertir_temperatura,
-    convertir_tiempo,
-    convertir_distancia,
-    añadir_contacto,
-    buscar_contactos,
-    eliminar_contacto,
-    ordenar_contactos,
-    registrar_producto,
-    buscar_producto,
-    actualizar_stock,
-    obtener_alertas_stock_bajo,
-    calcular_factorial,
-    calcular_fibonacci,
-    calcular_mcd,
-    calcular_estadisticas_completas,
-    filtrar_lista_numeros
-)
+# Garantizamos que el directorio src/ y la raíz del proyecto estén en sys.path para resolver imports desde cualquier terminal
+BASE_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = BASE_DIR.parent
+for path_entry in (str(BASE_DIR), str(PROJECT_ROOT)):
+    if path_entry not in sys.path:
+        sys.path.insert(0, path_entry)
+
+try:
+    from funciones import (
+        pedir_numero,
+        pedir_entero,
+        pedir_texto,
+        pedir_opcion_menu,
+        calcular_precio_final,
+        desglosar_ticket,
+        sumar_gastos,
+        calcular_presupuesto_restante,
+        repartir_cuenta,
+        resumen_gastos,
+        convertir_temperatura,
+        convertir_tiempo,
+        convertir_distancia,
+        añadir_contacto,
+        buscar_contactos,
+        eliminar_contacto,
+        ordenar_contactos,
+        registrar_producto,
+        buscar_producto,
+        actualizar_stock,
+        obtener_alertas_stock_bajo,
+        calcular_factorial,
+        calcular_fibonacci,
+        calcular_mcd,
+        calcular_estadisticas_completas,
+        filtrar_lista_numeros
+    )
+except ModuleNotFoundError:
+    from src.funciones import (
+        pedir_numero,
+        pedir_entero,
+        pedir_texto,
+        pedir_opcion_menu,
+        calcular_precio_final,
+        desglosar_ticket,
+        sumar_gastos,
+        calcular_presupuesto_restante,
+        repartir_cuenta,
+        resumen_gastos,
+        convertir_temperatura,
+        convertir_tiempo,
+        convertir_distancia,
+        añadir_contacto,
+        buscar_contactos,
+        eliminar_contacto,
+        ordenar_contactos,
+        registrar_producto,
+        buscar_producto,
+        actualizar_stock,
+        obtener_alertas_stock_bajo,
+        calcular_factorial,
+        calcular_fibonacci,
+        calcular_mcd,
+        calcular_estadisticas_completas,
+        filtrar_lista_numeros
+    )
 
 
 # ------------------------------------------------------------------------------
@@ -446,7 +484,10 @@ def main():
         elif opcion == "9":
             print("\nIniciando interfaz gráfica de escritorio...")
             try:
-                import main_gui
+                try:
+                    import main_gui
+                except ModuleNotFoundError:
+                    from src import main_gui
                 main_gui.iniciar_gui()
             except Exception as e:
                 print(f"No se pudo iniciar la interfaz gráfica: {e}")
