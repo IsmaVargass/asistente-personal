@@ -1,34 +1,33 @@
-# 🤖 Mi Asistente Personal en Python
+# Mi Asistente Personal en Python
 
-**Proyecto de Programación IA (2026/27) — iLERNA**  
+**Proyecto:** Programación IA (2026/27) — iLERNA  
 **Unidad Didáctica:** UD02 - Funciones en Python  
-**Ciclo Formativo:** 2º Desarrollo de Aplicaciones Web (2DAW)  
-**Autor:** Ismael Vargas Duque ([@IsmaVargass](https://github.com/IsmaVargass))  
+**Autor:** Ismael Vargas ([@IsmaVargass](https://github.com/IsmaVargass))  
 **Repositorio Oficial:** [https://github.com/IsmaVargass/asistente-personal](https://github.com/IsmaVargass/asistente-personal)
 
 ---
 
 ## 📖 Descripción del Proyecto
 
-**Mi Asistente Personal** es una aplicación interactiva por consola desarrollada íntegramente en **Python 3 (versión 3.10 o superior)** sin librerías externas (únicamente utilizando la librería estándar). Su propósito es centralizar y automatizar operaciones cotidianas a través de un menú estructurado en 8 módulos temáticos:
+**Mi Asistente Personal** es una aplicación modular por consola desarrollada íntegramente en Python 3 (versión 3.10 o superior), utilizando exclusivamente la librería estándar del lenguaje. Su objetivo es centralizar operaciones cotidianas a través de un menú interactivo estructurado en 8 módulos independientes:
 
-1. **🛒 Gestión de compras:** Cálculo de precios finales con descuentos e IVA, junto con desglose de tickets.
-2. **💰 Gestión económica:** Control de presupuestos, registro acumulativo de gastos con `*args` y reparto equitativo de cuentas.
-3. **🔄 Conversores:** Conversión bidireccional de temperaturas ($^\circ\text{C}, ^\circ\text{F}, \text{K}$), tiempos ($\text{s}, \text{m}, \text{h}, \text{d}$) y distancias ($\text{m}, \text{km}, \text{mi}, \text{ft}$).
-4. **👥 Agenda de contactos:** Registro, búsqueda insensible a mayúsculas, eliminación y ordenación alfabética mediante funciones Lambda.
-5. **📦 Gestión de productos:** Inventario, control de existencias (entradas/salidas evitando stock negativo) y alertas automáticas de reposición (`filter` + Lambda).
-6. **🧮 Utilidades matemáticas:** Algoritmos recursivos puros para Factorial, sucesión de Fibonacci y Máximo Común Divisor (MCD mediante Euclides).
-7. **📊 Análisis de información:** Cálculo estadístico completo (media, mediana, moda, mínimo y máximo) y filtrado dinámico de colecciones con funciones anónimas.
-8. **🚪 Salir:** Cierre seguro y limpio de la sesión.
+1. **Gestión de compras:** Facturación con descuentos, tipos impositivos de IVA y desglose comercial del ticket.
+2. **Gestión económica:** Control de presupuestos, registro acumulativo de gastos con `*args` y reparto equitativo de cuentas.
+3. **Conversores de unidades:** Motor de conversión de temperaturas (C, F, K), tiempos (s, m, h, d) y distancias (m, km, mi, ft).
+4. **Agenda de contactos:** Registro, búsqueda insensible a mayúsculas, eliminación y ordenación alfabética mediante funciones Lambda.
+5. **Gestión de inventario:** Control de existencias (entradas/salidas bloqueando saldos negativos) y alertas automáticas de rotura de stock.
+6. **Utilidades matemáticas:** Algoritmos recursivos puros para Factorial, sucesión de Fibonacci y Máximo Común Divisor (MCD mediante Euclides).
+7. **Análisis de información:** Cálculo estadístico descriptivo (media, mediana, moda, mínimo y máximo) y filtrado funcional dinámico.
+8. **Salir:** Cierre seguro y limpio del sistema con captura de interrupciones de teclado (`Ctrl + C`).
 
 ---
 
-## 🎯 ¿Por qué es importante este proyecto en 2º de DAW?
+## 🎯 Arquitectura e Ingeniería del Software
 
-1. **Principio DRY (*Don't Repeat Yourself*):** Las funciones permiten encapsular la lógica una sola vez y reutilizarla en múltiples puntos del programa, evitando código redundante y reduciendo errores.
-2. **Modularidad y Arquitectura de Software:** Separar la lógica de negocio (`funciones.py`) de la interfaz de usuario (`main.py`) es el estándar en el desarrollo web y backend profesional (patrones MVC, APIs REST con FastAPI/Flask/Django o microservicios en Express/Spring).
-3. **Pensamiento Lógico y Equivalencia con JavaScript:** El dominio de la **recursividad** y las funciones **Lambda** sienta las bases para las funciones flecha (*arrow functions*), así como el uso intensivo de métodos funcionales en frontend/backend como `map()`, `filter()` y `reduce()`.
-4. **Robustez mediante Validación de Entradas:** Un software profesional nunca debe fallar abruptamente (*crash/traceback*) ante un dato imprevisto. El proyecto incorpora validaciones sistemáticas con `try/except` y bucles de control.
+- **Principio DRY (Don't Repeat Yourself):** Cada cálculo y transformación se declara una sola vez en funciones independientes y reutilizables.
+- **Desacoplamiento I/O:** Las funciones de cálculo en `src/funciones.py` no realizan `print()` ni `input()`, garantizando su reutilización e integración en cualquier interfaz o API.
+- **Modularidad:** Separación limpia del código fuente en `src/` y de la documentación formal en `docs/`.
+- **Robustez y Gestión de Excepciones:** Validación de entradas mediante bucles de control y bloques `try/except ValueError` para prevenir caídas de ejecución.
 
 ---
 
@@ -36,98 +35,71 @@
 
 ```text
 asistente-personal/
-├── .gitignore                    # Filtro de Git para archivos temporales de Python
-├── LICENSE                       # Licencia del proyecto
-├── README.md                     # Documentación completa y manual de usuario
-├── AP_SinParametros.py           # Práctica 1: Funciones sin parámetros
-├── AP_UnParametro.py             # Práctica 2: Funciones con un parámetro
-├── AP_VariosParametros.py        # Práctica 3: Parámetros opcionales, *args, **kwargs y tuplas
-├── AP_ListasDiccionarios.py      # Práctica 4: Manipulación de listas y diccionarios
-├── AP_Recursividad.py            # Práctica 5: Factorial, Fibonacci y MCD recursivos
-├── APLambda.py                   # Práctica 6: Funciones anónimas, sorted, filter y map
-└── Proyecto_AsistentePersonal/
-    ├── funciones.py              # Biblioteca modular de funciones del asistente
-    └── main.py                   # Interfaz de consola y menús interactivos
+├── docs/
+│   ├── UD02_AsistentePython_IsmaelVargas.pdf   # Presentación oficial técnica del proyecto
+│   └── DocuAsistente.pdf                      # Manual técnico exhaustivo y guía de defensa
+├── src/
+│   ├── main.py                                # Punto de entrada y menú interactivo
+│   ├── funciones.py                           # Biblioteca central de lógica y servicios
+│   └── practicas/                             # Módulos de prácticas temáticas independientes
+│       ├── ap_sin_parametros.py
+│       ├── ap_un_parametro.py
+│       ├── ap_varios_parametros.py
+│       ├── ap_listas_diccionarios.py
+│       ├── ap_recursividad.py
+│       └── ap_lambda.py
+├── .gitignore
+├── LICENSE
+└── README.md
 ```
 
 ---
 
-## 🚀 Cómo Ejecutar el Proyecto
+## 🚀 Instrucciones de Ejecución
 
-### Requisitos Previos
-- Python 3.10 o superior instalado (`python --version`).
-- No requiere dependencias externas (`pip install` no es necesario).
+### Requisitos
+- Python 3.10 o superior instalado.
+- Sin dependencias de terceros (no requiere `pip install`).
 
-### Pasos para Ejecutar el Asistente Personal
-
-1. Clonar o abrir la carpeta del repositorio en la terminal:
-   ```bash
-   cd C:\Users\ismaelvargasduque14\Desktop\asistente-personal
-   ```
-
-2. Entrar a la carpeta del proyecto principal y lanzar `main.py`:
-   ```bash
-   cd Proyecto_AsistentePersonal
-   python main.py
-   ```
-
-### Ejecución de los Archivos de Práctica Independientes
-Cada archivo incluye su propia suite de pruebas visibles al ejecutarse directamente:
-
+### Ejecución de la Aplicación Principal
+Desde la raíz del repositorio:
 ```bash
-python AP_SinParametros.py
-python AP_UnParametro.py
-python AP_VariosParametros.py
-python AP_ListasDiccionarios.py
-python AP_Recursividad.py
-python APLambda.py
-python Proyecto_AsistentePersonal/funciones.py
+python src/main.py
+```
+
+### Ejecución de Suites de Pruebas Unitarias
+Cada módulo incluye su propio bloque de verificación ejecutable de forma aislada:
+```bash
+python -m src.practicas.ap_sin_parametros
+python -m src.practicas.ap_un_parametro
+python -m src.practicas.ap_varios_parametros
+python -m src.practicas.ap_listas_diccionarios
+python -m src.practicas.ap_recursividad
+python -m src.practicas.ap_lambda
+python src/funciones.py
 ```
 
 ---
 
 ## 📊 Matriz de Cumplimiento de Requisitos Técnicos
 
-A continuación se detalla dónde se cumple cada requisito exigido en la rúbrica oficial de evaluación:
-
-| Requisito Técnico Obligatorio | Función Implementada | Archivo | Explicación Técnica |
+| Requisito Oficial | Función en Código | Archivo | Justificación Técnica |
 | :--- | :--- | :--- | :--- |
-| **Al menos una función sin parámetros** | `mostrar_bienvenida()`, `obtener_fecha_hora()` | `AP_SinParametros.py`, `funciones.py` | No recibe argumentos de entrada; retorna información formateada del sistema o avisos. |
-| **Al menos una función con varios parámetros** | `calcular_precio_con_descuento_e_iva(precio, desc, iva)` | `AP_VariosParametros.py`, `funciones.py` | Recibe múltiples parámetros obligatorios posicionales. |
-| **Función con parámetros opcionales** | `calcular_precio_final(precio, descuento=0, iva=21)` | `AP_VariosParametros.py`, `funciones.py` | Asigna valores por defecto (0% descuento, 21% IVA) si el usuario los omite. |
-| **Función con `*args`** | `sumar_gastos(*gastos)`, `calcular_media(*numeros)` | `AP_VariosParametros.py`, `funciones.py` | Empaqueta un número indeterminado de argumentos posicionales en una tupla iterable. |
-| **Función con `**kwargs`** | `mostrar_ficha(**datos)` | `AP_VariosParametros.py` | Empaqueta argumentos con nombre en un diccionario clave-valor. |
-| **Función que devuelva varios resultados** | `desglosar_ticket(...)`, `repartir_cuenta(...)`, `calcular_estadisticas_completas(...)` | `AP_VariosParametros.py`, `funciones.py` | Retorna múltiples variables empaquetadas en una `tuple` que se desempaquetan en el llamador. |
-| **Función recursiva con caso base** | `calcular_factorial(n)`, `calcular_fibonacci(n)`, `calcular_mcd(a, b)` | `AP_Recursividad.py`, `funciones.py` | Se llaman a sí mismas reduciendo el problema; incluyen caso base para evitar recursión infinita. |
-| **Al menos dos funciones Lambda** | `ordenar_contactos` (`sorted`), `obtener_alertas_stock_bajo` (`filter`), `aplicar_descuento` (`map`) | `APLambda.py`, `funciones.py` | Funciones anónimas en una línea para ordenación, filtrado y mapeo de datos. |
-| **Validaciones y gestión de errores** | `pedir_numero()`, `pedir_entero()`, `actualizar_stock()` | `funciones.py` | Captura `ValueError`, impide stock negativo, bloquea división por cero y previene crash por `Ctrl+C`. |
-| **Menú interactivo continuo** | `main()` con `while True` y submenús | `Proyecto_AsistentePersonal/main.py` | Permite navegación cíclica por todas las secciones hasta elegir la opción de salida (8). |
+| **Al menos una función sin parámetros** | `obtener_fecha_hora()`, `mostrar_bienvenida()` | `src/practicas/ap_sin_parametros.py`, `src/funciones.py` | Genera y retorna marcas temporales del sistema sin depender de entradas externas. |
+| **Al menos una función con varios parámetros** | `calcular_precio_con_descuento_e_iva(p, d, i)` | `src/practicas/ap_varios_parametros.py`, `src/funciones.py` | Maneja múltiples parámetros obligatorios posicionales. |
+| **Función con parámetros opcionales** | `calcular_precio_final(precio, descuento=0, iva=21)` | `src/practicas/ap_varios_parametros.py`, `src/funciones.py` | Incorpora valores por defecto parametrizados. |
+| **Función con `*args`** | `sumar_gastos(*gastos)`, `calcular_media(*numeros)` | `src/practicas/ap_varios_parametros.py`, `src/funciones.py` | Empaqueta un número indeterminado de argumentos posicionales en una tupla iterable. |
+| **Función con `**kwargs`** | `mostrar_ficha(**datos)` | `src/practicas/ap_varios_parametros.py` | Empaqueta argumentos con nombre en un diccionario clave-valor. |
+| **Función que devuelva varios resultados** | `desglosar_ticket(...)`, `repartir_cuenta(...)` | `src/practicas/ap_varios_parametros.py`, `src/funciones.py` | Retorna múltiples resultados empaquetados en tuplas desempaquetables. |
+| **Función recursiva con caso base** | `calcular_factorial(n)`, `calcular_fibonacci(n)`, `calcular_mcd(a, b)` | `src/practicas/ap_recursividad.py`, `src/funciones.py` | Algoritmos con caso base explícito para evitar desbordamiento del call stack. |
+| **Al menos dos funciones Lambda** | `ordenar_contactos` (`sorted`), `obtener_alertas_stock_bajo` (`filter`) | `src/practicas/ap_lambda.py`, `src/funciones.py` | Programación funcional de orden superior para filtrado y ordenación inline. |
+| **Validaciones y gestión de errores** | `pedir_numero()`, `pedir_entero()`, `actualizar_stock()` | `src/funciones.py` | Captura de `ValueError`, bloqueo de stock negativo y salida controlada ante `Ctrl+C`. |
+| **Menú interactivo continuo** | `main()` con bucle `while True` | `src/main.py` | Flujo continuo con submenús temáticos y opción de salida limpia. |
 
 ---
 
-## 🧪 Pruebas Realizadas y Casos Límite Verificados
+## 📑 Documentación Técnica Oficial
 
-Durante el desarrollo se han verificado sistemáticamente los siguientes escenarios mediante suites automatizadas:
-
-1. **Casos Normales:**
-   - Cálculo de ticket comercial con 10% descuento y 21% IVA sobre 100€ $\to$ Total: 108.90€.
-   - Conversión de 25 ºC a Fahrenheit $\to$ 77.00 ºF.
-   - MCD(48, 18) $\to$ 6.
-
-2. **Casos Límite:**
-   - `calcular_factorial(0)` $\to$ Retorna 1 (definición matemática del caso base).
-   - `sumar_gastos()` sin argumentos $\to$ Retorna 0.0€ sin error.
-   - `calcular_media()` con lista vacía $\to$ Retorna 0.0 (evita `ZeroDivisionError`).
-   - `repartir_cuenta(100, 3)` $\to$ Cuota: 33.33€, resto/descuadre: +0.01€.
-
-3. **Casos Erróneos y Control de Excepciones:**
-   - Intentar registrar stock negativo o precios inferiores a 0 $\to$ Rechazado por validación.
-   - Intentar vender más unidades de las existentes en stock $\to$ Operación denegada con aviso de existencias insuficientes.
-   - Interrupción de teclado `Ctrl + C` en cualquier momento del menú $\to$ Capturada por `KeyboardInterrupt` cerrando el asistente amigablemente.
-
----
-
-## 📌 Enlace al Repositorio en GitHub
-
-El código fuente completo con su historial de commits se encuentra publicado en:  
-🔗 **[https://github.com/IsmaVargass/asistente-personal](https://github.com/IsmaVargass/asistente-personal)**
+Los entregables formales del proyecto se encuentran en la carpeta `docs/`:
+- **[docs/UD02_AsistentePython_IsmaelVargas.pdf](docs/UD02_AsistentePython_IsmaelVargas.pdf):** Presentación técnica oficial en diapositivas con evidencias de terminal real y desarrollo de los 7 puntos exigidos en la rúbrica.
+- **[docs/DocuAsistente.pdf](docs/DocuAsistente.pdf):** Manual técnico y guía de defensa con desglose algorítmico, mapa de memoria y banco de preguntas de evaluación.
