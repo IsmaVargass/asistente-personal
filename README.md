@@ -36,12 +36,12 @@
 ```text
 asistente-personal/
 ├── docs/
-│   ├── UD02_AsistentePython_IsmaelVargas.pdf   # Presentación oficial técnica del proyecto
-│   └── DocuAsistente.pdf                      # Manual técnico exhaustivo y guía de defensa
+│   ├── UD02_AsistentePython_IsmaelVargas.pdf   # Presentación técnica oficial en diapositivas
+│   └── DocuAsistente.pdf                      # Manual técnico exhaustivo del proyecto
 ├── src/
 │   ├── main.py                                # Punto de entrada y menú interactivo
 │   ├── funciones.py                           # Biblioteca central de lógica y servicios
-│   └── practicas/                             # Módulos de prácticas temáticas independientes
+│   └── scripts/                               # Módulos temáticos independientes
 │       ├── ap_sin_parametros.py
 │       ├── ap_un_parametro.py
 │       ├── ap_varios_parametros.py
@@ -70,12 +70,12 @@ python src/main.py
 ### Ejecución de Suites de Pruebas Unitarias
 Cada módulo incluye su propio bloque de verificación ejecutable de forma aislada:
 ```bash
-python -m src.practicas.ap_sin_parametros
-python -m src.practicas.ap_un_parametro
-python -m src.practicas.ap_varios_parametros
-python -m src.practicas.ap_listas_diccionarios
-python -m src.practicas.ap_recursividad
-python -m src.practicas.ap_lambda
+python -m src.scripts.ap_sin_parametros
+python -m src.scripts.ap_un_parametro
+python -m src.scripts.ap_varios_parametros
+python -m src.scripts.ap_listas_diccionarios
+python -m src.scripts.ap_recursividad
+python -m src.scripts.ap_lambda
 python src/funciones.py
 ```
 
@@ -85,14 +85,14 @@ python src/funciones.py
 
 | Requisito Oficial | Función en Código | Archivo | Justificación Técnica |
 | :--- | :--- | :--- | :--- |
-| **Al menos una función sin parámetros** | `obtener_fecha_hora()`, `mostrar_bienvenida()` | `src/practicas/ap_sin_parametros.py`, `src/funciones.py` | Genera y retorna marcas temporales del sistema sin depender de entradas externas. |
-| **Al menos una función con varios parámetros** | `calcular_precio_con_descuento_e_iva(p, d, i)` | `src/practicas/ap_varios_parametros.py`, `src/funciones.py` | Maneja múltiples parámetros obligatorios posicionales. |
-| **Función con parámetros opcionales** | `calcular_precio_final(precio, descuento=0, iva=21)` | `src/practicas/ap_varios_parametros.py`, `src/funciones.py` | Incorpora valores por defecto parametrizados. |
-| **Función con `*args`** | `sumar_gastos(*gastos)`, `calcular_media(*numeros)` | `src/practicas/ap_varios_parametros.py`, `src/funciones.py` | Empaqueta un número indeterminado de argumentos posicionales en una tupla iterable. |
-| **Función con `**kwargs`** | `mostrar_ficha(**datos)` | `src/practicas/ap_varios_parametros.py` | Empaqueta argumentos con nombre en un diccionario clave-valor. |
-| **Función que devuelva varios resultados** | `desglosar_ticket(...)`, `repartir_cuenta(...)` | `src/practicas/ap_varios_parametros.py`, `src/funciones.py` | Retorna múltiples resultados empaquetados en tuplas desempaquetables. |
-| **Función recursiva con caso base** | `calcular_factorial(n)`, `calcular_fibonacci(n)`, `calcular_mcd(a, b)` | `src/practicas/ap_recursividad.py`, `src/funciones.py` | Algoritmos con caso base explícito para evitar desbordamiento del call stack. |
-| **Al menos dos funciones Lambda** | `ordenar_contactos` (`sorted`), `obtener_alertas_stock_bajo` (`filter`) | `src/practicas/ap_lambda.py`, `src/funciones.py` | Programación funcional de orden superior para filtrado y ordenación inline. |
+| **Al menos una función sin parámetros** | `obtener_fecha_hora()`, `mostrar_bienvenida()` | `src/scripts/ap_sin_parametros.py`, `src/funciones.py` | Genera y retorna marcas temporales del sistema sin depender de entradas externas. |
+| **Al menos una función con varios parámetros** | `calcular_precio_con_descuento_e_iva(p, d, i)` | `src/scripts/ap_varios_parametros.py`, `src/funciones.py` | Maneja múltiples parámetros obligatorios posicionales. |
+| **Función con parámetros opcionales** | `calcular_precio_final(precio, descuento=0, iva=21)` | `src/scripts/ap_varios_parametros.py`, `src/funciones.py` | Incorpora valores por defecto parametrizados. |
+| **Función con `*args`** | `sumar_gastos(*gastos)`, `calcular_media(*numeros)` | `src/scripts/ap_varios_parametros.py`, `src/funciones.py` | Empaqueta un número indeterminado de argumentos posicionales en una tupla iterable. |
+| **Función con `**kwargs`** | `mostrar_ficha(**datos)` | `src/scripts/ap_varios_parametros.py` | Empaqueta argumentos con nombre en un diccionario clave-valor. |
+| **Función que devuelva varios resultados** | `desglosar_ticket(...)`, `repartir_cuenta(...)` | `src/scripts/ap_varios_parametros.py`, `src/funciones.py` | Retorna múltiples resultados empaquetados en tuplas desempaquetables. |
+| **Función recursiva con caso base** | `calcular_factorial(n)`, `calcular_fibonacci(n)`, `calcular_mcd(a, b)` | `src/scripts/ap_recursividad.py`, `src/funciones.py` | Algoritmos con caso base explícito para evitar desbordamiento del call stack. |
+| **Al menos dos funciones Lambda** | `ordenar_contactos` (`sorted`), `obtener_alertas_stock_bajo` (`filter`) | `src/scripts/ap_lambda.py`, `src/funciones.py` | Programación funcional de orden superior para filtrado y ordenación inline. |
 | **Validaciones y gestión de errores** | `pedir_numero()`, `pedir_entero()`, `actualizar_stock()` | `src/funciones.py` | Captura de `ValueError`, bloqueo de stock negativo y salida controlada ante `Ctrl+C`. |
 | **Menú interactivo continuo** | `main()` con bucle `while True` | `src/main.py` | Flujo continuo con submenús temáticos y opción de salida limpia. |
 
@@ -102,4 +102,4 @@ python src/funciones.py
 
 Los entregables formales del proyecto se encuentran en la carpeta `docs/`:
 - **[docs/UD02_AsistentePython_IsmaelVargas.pdf](docs/UD02_AsistentePython_IsmaelVargas.pdf):** Presentación técnica oficial en diapositivas con evidencias de terminal real y desarrollo de los 7 puntos exigidos en la rúbrica.
-- **[docs/DocuAsistente.pdf](docs/DocuAsistente.pdf):** Manual técnico y guía de defensa con desglose algorítmico, mapa de memoria y banco de preguntas de evaluación.
+- **[docs/DocuAsistente.pdf](docs/DocuAsistente.pdf):** Manual técnico del proyecto con desglose de funciones, arquitectura modular y verificación.
