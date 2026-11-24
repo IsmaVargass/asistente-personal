@@ -9,9 +9,9 @@
 
 ## 📖 Descripción del Proyecto
 
-**Mi Asistente Personal** es una aplicación modular desarrollada en Python 3 (versión 3.10 o superior) empleando exclusivamente la librería estándar del lenguaje. Su propósito es estructurar y resolver tareas cotidianas mediante funciones reutilizables organizadas en 8 áreas operativas:
+**Mi Asistente Personal** es una aplicación modular desarrollada en Python 3 (versión 3.10 o superior) empleando exclusivamente la librería estándar del lenguaje. Su objetivo es estructurar y resolver tareas cotidianas mediante funciones reutilizables organizadas en 8 áreas operativas:
 
-1. **Gestión de compras:** Cálculo de precios netos con descuentos, IVA y desglose comercial del ticket.
+1. **Gestión de compras:** Facturación con descuentos, tipos impositivos de IVA y desglose comercial del ticket.
 2. **Gestión económica:** Control presupuestario, registro dinámico de gastos con `*args` y reparto equitativo de cuentas.
 3. **Conversores de unidades:** Motor de conversión de temperaturas (C, F, K), tiempos (s, m, h, d) y distancias (m, km, mi, ft).
 4. **Agenda de contactos:** Registro en listas de diccionarios, búsqueda insensible a mayúsculas, eliminación y ordenación alfabética mediante lambdas.
@@ -22,34 +22,25 @@
 
 ---
 
-## 🎯 Arquitectura del Software
+## 📁 Estructura del Proyecto
 
-- **Principio DRY (Don't Repeat Yourself):** Toda la lógica de cómputo reside en funciones independientes y puras dentro de `src/funciones.py`.
-- **Desacoplamiento I/O:** Las funciones de cálculo no contienen `print()` ni `input()`, garantizando que la misma lógica pueda ser consumida por la consola o por la interfaz gráfica.
-- **Doble Interfaz (Consola y GUI):** 
-  - `src/main.py`: Interfaz oficial por consola interactiva exigida en la rúbrica.
-  - `src/main_gui.py`: Extensión gráfica de escritorio desarrollada en `tkinter` nativo.
-
----
-
-## 📁 Estructura del Repositorio
+El repositorio sigue con total fidelidad la estructura indicada en las especificaciones de entrega de la unidad didáctica:
 
 ```text
 asistente-personal/
+├── AP_SinParametros.py                  # Práctica: Funciones sin parámetros
+├── AP_UnParametro.py                    # Práctica: Funciones con un único parámetro
+├── AP_VariosParametros.py               # Práctica: Múltiples parámetros, opcionales, *args, **kwargs y tuplas
+├── AP_ListasDiccionarios.py             # Práctica: Gestión de colecciones en memoria
+├── AP_Recursividad.py                   # Práctica: Algoritmos recursivos y caso base
+├── APLambda.py                          # Práctica: Funciones anónimas con sorted, filter y map
+├── Proyecto_AsistentePersonal/
+│   ├── main.py                          # Programa principal interactivo de consola
+│   ├── main_gui.py                      # Extensión complementaria con interfaz gráfica (Tkinter)
+│   └── funciones.py                     # Biblioteca central de lógica y servicios de cálculo
 ├── docs/
-│   ├── UD02_AsistentePython_IsmaelVargas.pdf   # Memoria técnica oficial en formato académico / tesis
-│   └── DocuAsistente.pdf                      # Manual técnico exhaustivo del sistema
-├── src/
-│   ├── main.py                                # Punto de entrada oficial por consola
-│   ├── main_gui.py                            # Interfaz gráfica de escritorio (Tkinter)
-│   ├── funciones.py                           # Biblioteca central de lógica y servicios
-│   └── scripts/                               # Módulos temáticos independientes
-│       ├── ap_sin_parametros.py
-│       ├── ap_un_parametro.py
-│       ├── ap_varios_parametros.py
-│       ├── ap_listas_diccionarios.py
-│       ├── ap_recursividad.py
-│       └── ap_lambda.py
+│   ├── UD02_AsistentePython_IsmaelVargas.pdf # Memoria técnica oficial en formato Tesis Académica
+│   └── DocuAsistente.pdf                # Manual técnico exhaustivo de especificación
 ├── .gitignore
 ├── LICENSE
 └── README.md
@@ -63,27 +54,28 @@ asistente-personal/
 - Python 3.10 o superior instalado.
 - Sin dependencias externas de terceros (no requiere `pip install`).
 
-### 1. Ejecución de la Consola Oficial (Programa Principal)
-Desde la raíz del repositorio:
+### 1. Ejecución del Asistente por Consola (Programa Principal)
 ```bash
-python src/main.py
+cd Proyecto_AsistentePersonal
+python main.py
 ```
-*(Permite navegar por los 8 módulos obligatorios de la rúbrica, e incluye la opción 9 para lanzar la GUI si se desea).*
+*(Permite navegar por los 8 módulos obligatorios del enunciado, e incluye la opción 9 para lanzar la interfaz gráfica si se desea).*
 
 ### 2. Ejecución Directa de la Interfaz Gráfica (Tkinter)
 ```bash
-python src/main_gui.py
+cd Proyecto_AsistentePersonal
+python main_gui.py
 ```
 
-### 3. Ejecución de Suites de Pruebas Unitarias
+### 3. Ejecución de los Módulos de Práctica Independientes
+Desde la raíz del proyecto, cada archivo puede ejecutarse directamente para comprobar su batería de pruebas unitarias:
 ```bash
-python -m src.scripts.ap_sin_parametros
-python -m src.scripts.ap_un_parametro
-python -m src.scripts.ap_varios_parametros
-python -m src.scripts.ap_listas_diccionarios
-python -m src.scripts.ap_recursividad
-python -m src.scripts.ap_lambda
-python src/funciones.py
+python AP_SinParametros.py
+python AP_UnParametro.py
+python AP_VariosParametros.py
+python AP_ListasDiccionarios.py
+python AP_Recursividad.py
+python APLambda.py
 ```
 
 ---
@@ -92,16 +84,16 @@ python src/funciones.py
 
 | Requisito Oficial | Función en Código | Archivo | Justificación Técnica |
 | :--- | :--- | :--- | :--- |
-| **Al menos una función sin parámetros** | `obtener_fecha_hora()`, `mostrar_bienvenida()` | `src/scripts/ap_sin_parametros.py`, `src/funciones.py` | Genera y retorna marcas temporales del sistema sin depender de entradas externas. |
-| **Al menos una función con varios parámetros** | `calcular_precio_con_descuento_e_iva(p, d, i)` | `src/scripts/ap_varios_parametros.py`, `src/funciones.py` | Maneja múltiples parámetros obligatorios posicionales. |
-| **Función con parámetros opcionales** | `calcular_precio_final(precio, descuento=0, iva=21)` | `src/scripts/ap_varios_parametros.py`, `src/funciones.py` | Incorpora valores por defecto parametrizados. |
-| **Función con `*args`** | `sumar_gastos(*gastos)`, `calcular_media(*numeros)` | `src/scripts/ap_varios_parametros.py`, `src/funciones.py` | Empaqueta un número indeterminado de argumentos posicionales en una tupla iterable. |
-| **Función con `**kwargs`** | `mostrar_ficha(**datos)` | `src/scripts/ap_varios_parametros.py` | Empaqueta argumentos con nombre en un diccionario clave-valor. |
-| **Función que devuelva varios resultados** | `desglosar_ticket(...)`, `repartir_cuenta(...)` | `src/scripts/ap_varios_parametros.py`, `src/funciones.py` | Retorna múltiples resultados empaquetados en tuplas desempaquetables. |
-| **Función recursiva con caso base** | `calcular_factorial(n)`, `calcular_fibonacci(n)`, `calcular_mcd(a, b)` | `src/scripts/ap_recursividad.py`, `src/funciones.py` | Algoritmos con caso base explícito para evitar desbordamiento del call stack. |
-| **Al menos dos funciones Lambda** | `ordenar_contactos` (`sorted`), `obtener_alertas_stock_bajo` (`filter`) | `src/scripts/ap_lambda.py`, `src/funciones.py` | Programación funcional de orden superior para filtrado y ordenación inline. |
-| **Validaciones y gestión de errores** | `pedir_numero()`, `pedir_entero()`, `actualizar_stock()` | `src/funciones.py` | Captura de `ValueError`, bloqueo de stock negativo y salida controlada ante `Ctrl+C`. |
-| **Menú interactivo continuo** | `main()` con bucle `while True` | `src/main.py` | Flujo continuo con submenús temáticos y opción de salida limpia. |
+| **Al menos una función sin parámetros** | `obtener_fecha_hora()`, `mostrar_bienvenida()` | `AP_SinParametros.py`, `funciones.py` | Genera y retorna marcas temporales del sistema sin depender de entradas externas. |
+| **Al menos una función con varios parámetros** | `calcular_precio_con_descuento_e_iva(p, d, i)` | `AP_VariosParametros.py`, `funciones.py` | Maneja múltiples parámetros obligatorios posicionales. |
+| **Función con parámetros opcionales** | `calcular_precio_final(precio, descuento=0, iva=21)` | `AP_VariosParametros.py`, `funciones.py` | Incorpora valores por defecto parametrizados. |
+| **Función con `*args`** | `sumar_gastos(*gastos)`, `calcular_media(*numeros)` | `AP_VariosParametros.py`, `funciones.py` | Empaqueta un número indeterminado de argumentos posicionales en una tupla iterable. |
+| **Función con `**kwargs`** | `mostrar_ficha(**datos)` | `AP_VariosParametros.py` | Empaqueta argumentos con nombre en un diccionario clave-valor. |
+| **Función que devuelva varios resultados** | `desglosar_ticket(...)`, `repartir_cuenta(...)` | `AP_VariosParametros.py`, `funciones.py` | Retorna múltiples resultados empaquetados en tuplas desempaquetables. |
+| **Función recursiva con caso base** | `calcular_factorial(n)`, `calcular_fibonacci(n)`, `calcular_mcd(a, b)` | `AP_Recursividad.py`, `funciones.py` | Algoritmos con caso base explícito para evitar desbordamiento del call stack. |
+| **Al menos dos funciones Lambda** | `ordenar_contactos` (`sorted`), `obtener_alertas_stock_bajo` (`filter`) | `APLambda.py`, `funciones.py` | Programación funcional de orden superior para filtrado y ordenación inline. |
+| **Validaciones y gestión de errores** | `pedir_numero()`, `pedir_entero()`, `actualizar_stock()` | `funciones.py` | Captura de `ValueError`, bloqueo de stock negativo y salida controlada ante `Ctrl+C`. |
+| **Menú interactivo continuo** | `main()` con bucle `while True` | `Proyecto_AsistentePersonal/main.py` | Flujo continuo con submenús temáticos y opción de salida limpia. |
 
 ---
 
