@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>DocuAsistente - Guía Personal de Defensa del Proyecto</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --accent-cyan: #06b6d4;
+      --accent-purple: #a855f7;
+      --accent-green: #10b981;
+      --accent-orange: #f59e0b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f1f5f9;
+      color: #1e293b;
+      line-height: 1.5;
+      font-size: 13px;
+      padding: 20px;
+    }
+
+    .doc-page {
+      max-width: 900px;
+      margin: 0 auto 30px auto;
+      background: white;
+      padding: 35px 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .doc-header {
+      border-bottom: 3px solid #6366f1;
+      padding-bottom: 18px;
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .doc-header h1 {
+      font-size: 24px;
+      color: #1e1b4b;
+      font-weight: 800;
+    }
+
+    .doc-header p {
+      color: #6366f1;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .pill {
+      background: #e0e7ff;
+      color: #4338ca;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .section-badge {
+      display: inline-block;
+      background: #e2e8f0;
+      color: #334155;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-size: 16px;
+      color: #0f172a;
+      margin: 20px 0 10px 0;
+      border-left: 4px solid #6366f1;
+      padding-left: 10px;
+    }
+
+    .callout {
+      background: #f8fafc;
+      border-left: 4px solid #3b82f6;
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 12px 0;
+      font-size: 12px;
+    }
+
+    .qa-card {
+      background: #fafafa;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+
+    .qa-card .q {
+      font-weight: 700;
+      color: #b91c1c;
+      font-size: 12.5px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .qa-card .a {
+      color: #334155;
+      font-size: 12px;
+    }
+
+    .analogy-box {
+      background: #fefce8;
+      border: 1px solid #fef08a;
+      border-left: 4px solid #ca8a04;
+      padding: 12px;
+      border-radius: 0 8px 8px 0;
+      margin: 10px 0;
+      font-size: 11.5px;
+    }
+
+    .analogy-box strong { color: #854d0e; }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 12px 0;
+    }
+
+    .term-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 10px 12px;
+      background: white;
+    }
+
+    .term-card strong {
+      display: block;
+      color: #4338ca;
+      font-size: 12px;
+      margin-bottom: 4px;
+    }
+
+    .term-card p {
+      font-size: 11px;
+      color: #64748b;
+      margin: 0;
+    }
+
+    code {
+      font-family: 'Fira Code', monospace;
+      font-size: 11px;
+      background: #f1f5f9;
+      color: #be123c;
+      padding: 1px 4px;
+      border-radius: 4px;
+    }
+
+    .footer {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 15px;
+      margin-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 10.5px;
+      color: #94a3b8;
+    }
+
+    @media print {
+      body { padding: 0; background: white; }
+      .doc-page { box-shadow: none; padding: 20px; max-width: 100%; page-break-after: always; }
+      .doc-page:last-child { page-break-after: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PÁGINA 1: ELEVATOR PITCH, ARQUITECTURA Y PREGUNTAS TRAMPA -->
+  <div class="doc-page">
+    <div class="doc-header">
+      <div>
+        <h1>DOCUASISTENTE: GUÍA DE DEFENSA TOTAL</h1>
+        <p>Todo lo que necesitas saber para explicar y defender tu proyecto como un crack</p>
+      </div>
+      <div class="pill">2º DAW • Uso Personal / Examen</div>
+    </div>
+
+    <div class="callout">
+      <strong>🎯 El "Elevator Pitch" (¿Cómo explicas el proyecto al profesor en 30 segundos?):</strong><br>
+      <em>"He creado un Asistente Personal modular en consola que resuelve gestiones cotidianas (compras, presupuestos, contactos, inventario, conversores y cálculos estadísticos). Toda la lógica está dividida en funciones independientes, aplicando recursividad con caso base, lambdas para filtros dinámicos, retornos múltiples con tuplas y validaciones blindadas para que el usuario nunca vea un error ni el programa se caiga."</em>
+    </div>
+
+    <h2>🧠 1. Mapa Mental de la Arquitectura (¿Por qué está separado así?)</h2>
+    <div class="grid-2">
+      <div class="term-card">
+        <strong>📂 funciones.py (El Cerebro Silencioso)</strong>
+        <p>Aquí solo hay cálculo y lógica pura. <strong>Regla de oro:</strong> Las funciones de cálculo <em>no hacen print() ni input()</em>, solo reciben parámetros y devuelven con <code>return</code>. Esto hace que sean 100% reutilizables en cualquier interfaz (consola, web con Django/Flask o una API).</p>
+      </div>
+      <div class="term-card">
+        <strong>🎮 main.py (La Cara Visible)</strong>
+        <p>Aquí está el bucle <code>while True</code>, los menús con emojis, los inputs y los prints. Los datos (la lista de contactos y productos) <strong>viven en memoria aquí</strong> y se pasan a las funciones como argumentos. Cero variables globales dentro de las funciones.</p>
+      </div>
+    </div>
+
+    <h2>💣 2. Preguntas Trampa del Profesor y Respuestas Ganadoras</h2>
+
+    <div class="qa-card">
+      <div class="q">❓ "¿Por qué has puesto <code>if __name__ == '__main__':</code> al final de cada archivo?"</div>
+      <div class="a">
+        <strong>Tu respuesta:</strong> <em>"Porque esa condición comprueba si el archivo se está ejecutando directamente o si se está importando desde otro. Cuando ejecuto <code>AP_UnParametro.py</code> directamente, lanza su batería de pruebas; pero cuando <code>main.py</code> importa <code>funciones.py</code>, esa variable mágica vale el nombre del módulo y no <code>'__main__'</code>, evitando que se ejecuten las pruebas de repente."</em>
+      </div>
+    </div>
+
+    <div class="qa-card">
+      <div class="q">❓ "¿Qué diferencia hay entre un PARÁMETRO y un ARGUMENTO?"</div>
+      <div class="a">
+        <strong>Tu respuesta:</strong> <em>"El <strong>parámetro</strong> es la variable que pongo entre paréntesis al definir la función con <code>def calcular_iva(precio):</code> (la plantilla). El <strong>argumento</strong> es el valor real que le mando cuando la llamo: <code>calcular_iva(100.0)</code>."</em>
+      </div>
+    </div>
+
+    <div class="qa-card">
+      <div class="q">❓ "¿Cómo devuelve una función varios valores si return solo devuelve uno?"</div>
+      <div class="a">
+        <strong>Tu respuesta:</strong> <em>"En realidad Python los empaqueta automáticamente en una <strong>TUPLA</strong>. Cuando pongo <code>return base, descuento, iva, total</code>, estoy devolviendo una única tupla de 4 elementos. Luego en el menú los <strong>desempaqueto</strong> en variables individuales poniendo <code>b, d, i, t = desglosar_ticket(...)</code>."</em>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>DocuAsistente • Repositorio: github.com/IsmaVargass/asistente-personal</span>
+      <span>Página 1</span>
+    </div>
+  </div>
+
+  <!-- PÁGINA 2: RECURSIVIDAD, LAMBDAS Y ANALOGÍAS -->
+  <div class="doc-page">
+    <h2>🌀 3. La Recursividad Explicada Fácil (Factorial, Fibonacci, MCD)</h2>
+
+    <div class="analogy-box">
+      <strong>📦 Metáfora de la Pila de Platos (Call Stack):</strong><br>
+      Imagina que para lavar un plato grande necesitas lavar uno más pequeño. Vas poniendo platos encima de la pila (apilando llamadas en pausa). Cuando llegas al plato más diminuto que ya no tiene más dentro (el <strong>CASO BASE</strong>), paras de apilar y empiezas a secar y quitar platos de arriba a abajo (desapilar y devolver resultados).
+    </div>
+
+    <div class="qa-card">
+      <div class="q">❓ "¿Qué pasa si se te olvida poner el caso base en una función recursiva?"</div>
+      <div class="a">
+        <strong>Tu respuesta:</strong> <em>"Que la función entra en recursión infinita llamándose a sí misma sin parar. Python se protege para no reventar la memoria RAM y lanza un error <code>RecursionError: maximum recursion depth exceeded</code> al llegar al límite (por defecto 1000 llamadas, que se consulta con <code>sys.getrecursionlimit()</code>)."</em>
+      </div>
+    </div>
+
+    <div class="qa-card">
+      <div class="q">❓ "¿Por qué el Fibonacci recursivo se ralentiza a partir de n = 35?"</div>
+      <div class="a">
+        <strong>Tu respuesta:</strong> <em>"Porque tiene una complejidad exponencial $O(2^n)$. Para calcular Fibonacci(5) necesita calcular Fibonacci(4) y Fibonacci(3), y a su vez Fibonacci(4) vuelve a calcular Fibonacci(3). Va recalculando los mismos números miles de veces en un árbol enorme. Por eso en el asistente lo protegemos para que el usuario no meta más de 30."</em>
+      </div>
+    </div>
+
+    <h2>⚡ 4. Funciones Lambda: ¿Qué son y por qué molan?</h2>
+    <div class="callout">
+      <strong>La traducción a JavaScript (para que vean que dominas 2DAW):</strong><br>
+      Una <code>lambda</code> en Python es exactamente igual a una <em>función flecha</em> (arrow function) de una sola línea en JS:<br>
+      • Python: <code>lambda p: p['stock'] <= 5</code><br>
+      • JavaScript: <code>p => p.stock <= 5</code>
+    </div>
+
+    <div class="qa-card">
+      <div class="q">❓ "¿Cuándo uso 'lambda' y cuándo uso 'def'?"</div>
+      <div class="a">
+        <strong>Tu respuesta:</strong> <em>"Uso <code>lambda</code> cuando necesito una función pequeñita de un solo uso que cabe en una línea, típicamente como criterio de ordenación en <code>sorted()</code> o filtro en <code>filter()</code>. Si la función tiene más de una línea, necesita un <code>if/elif/else</code> complejo, bucles o la voy a reutilizar en muchos sitios, uso siempre <code>def</code>."</em>
+      </div>
+    </div>
+
+    <div class="footer">
+      <span>DocuAsistente • Repositorio: github.com/IsmaVargass/asistente-personal</span>
+      <span>Página 2</span>
+    </div>
+  </div>
+
+  <!-- PÁGINA 3: DICCIONARIO RÁPIDO Y VALIDACIONES -->
+  <div class="doc-page">
+    <h2>🛡️ 5. Cómo Evitamos que el Programa "Pete" (Validaciones)</h2>
+
+    <div class="grid-2">
+      <div class="term-card">
+        <strong>🚫 Evitar que letras rompan números</strong>
+        <p>Usamos <code>try / except ValueError</code> dentro de un bucle <code>while True</code> en <code>pedir_numero()</code> y <code>pedir_entero()</code>. Si el usuario escribe "hola" en vez de "25", capturamos el fallo, mostramos un mensaje educado y volvemos a pedirlo.</p>
+      </div>
+      <div class="term-card">
+        <strong>🚫 Evitar stock negativo o precios locos</strong>
+        <p>En <code>actualizar_stock()</code> comprobamos primero si <code>stock + cantidad < 0</code>. Si no hay suficientes existencias, no tocamos nada y devolvemos <code>False</code> con un mensaje de existencias insuficientes.</p>
+      </div>
+      <div class="term-card">
+        <strong>🚫 Evitar divisiones por cero</strong>
+        <p>En <code>repartir_cuenta()</code> comprobamos <code>if personas <= 0</code> y en <code>calcular_media()</code> si la lista está vacía (<code>len(numeros) == 0</code>). Si lo es, retornamos 0.0 directamente.</p>
+      </div>
+      <div class="term-card">
+        <strong>🚫 Salir con Ctrl + C sin soltar error</strong>
+        <p>En <code>main.py</code> envolvemos todo en <code>try: main() except KeyboardInterrupt:</code>. Si el usuario interrumpe la consola con teclado, sale con un mensaje de despedida limpio sin soltar texto en rojo.</p>
+      </div>
+    </div>
+
+    <h2>📖 6. Diccionario de Términos Clave para 2DAW</h2>
+    <table style="width:100%; border-collapse: collapse; font-size: 11.5px; margin-top: 10px;">
+      <tr style="background:#f1f5f9; text-align: left;">
+        <th style="padding: 8px; border: 1px solid #cbd5e1;">Término</th>
+        <th style="padding: 8px; border: 1px solid #cbd5e1;">En cristiano (explicación sencilla)</th>
+      </tr>
+      <tr>
+        <td style="padding: 6px 8px; border: 1px solid #cbd5e1;"><strong>*args</strong></td>
+        <td style="padding: 6px 8px; border: 1px solid #cbd5e1;">El asterisco le dice a Python: <em>"guárdame todos los números sueltos que te pasen en una tupla"</em>. Permite sumar 2 gastos o 50 gastos sin cambiar la función.</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px 8px; border: 1px solid #cbd5e1;"><strong>**kwargs</strong></td>
+        <td style="padding: 6px 8px; border: 1px solid #cbd5e1;">El doble asterisco dice: <em>"guárdame todos los datos con nombre (ej: edad=20) en un diccionario"</em>.</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px 8px; border: 1px solid #cbd5e1;"><strong>Parámetro por defecto</strong></td>
+        <td style="padding: 6px 8px; border: 1px solid #cbd5e1;">Un valor que la función asume si tú no le pasas nada (ej: <code>iva=21</code>).</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px 8px; border: 1px solid #cbd5e1;"><strong>Inmutabilidad</strong></td>
+        <td style="padding: 6px 8px; border: 1px solid #cbd5e1;">Las tuplas no se pueden modificar tras crearse; las listas y diccionarios sí son mutables.</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px 8px; border: 1px solid #cbd5e1;"><strong>Principio DRY</strong></td>
+        <td style="padding: 6px 8px; border: 1px solid #cbd5e1;"><em>"Don't Repeat Yourself"</em>. Si vas a escribir el mismo código dos veces, haz una función.</td>
+      </tr>
+    </table>
+
+    <div class="footer">
+      <span>DocuAsistente • Repositorio: github.com/IsmaVargass/asistente-personal</span>
+      <span>Página 3 • ¡Listo para defender el proyecto y sacar un 10!</span>
+    </div>
+  </div>
+
+</body>
+</html>
