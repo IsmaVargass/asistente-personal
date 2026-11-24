@@ -422,8 +422,9 @@ def main():
         print("6. Utilidades matemáticas recursivas")
         print("7. Análisis de información y filtros")
         print("8. Salir")
+        print("9. Iniciar Interfaz Gráfica (GUI Tkinter)")
         
-        opcion = pedir_opcion_menu(["1", "2", "3", "4", "5", "6", "7", "8"])
+        opcion = pedir_opcion_menu(["1", "2", "3", "4", "5", "6", "7", "8", "9"])
         
         if opcion == "1":
             submenu_compras()
@@ -442,6 +443,13 @@ def main():
         elif opcion == "8":
             print("\nSesión finalizada. Aplicación cerrada correctamente.")
             break
+        elif opcion == "9":
+            print("\nIniciando interfaz gráfica de escritorio...")
+            try:
+                import main_gui
+                main_gui.iniciar_gui()
+            except Exception as e:
+                print(f"No se pudo iniciar la interfaz gráfica: {e}")
 
 
 if __name__ == "__main__":

@@ -9,25 +9,26 @@
 
 ## 📖 Descripción del Proyecto
 
-**Mi Asistente Personal** es una aplicación modular por consola desarrollada íntegramente en Python 3 (versión 3.10 o superior), utilizando exclusivamente la librería estándar del lenguaje. Su objetivo es centralizar operaciones cotidianas a través de un menú interactivo estructurado en 8 módulos independientes:
+**Mi Asistente Personal** es una aplicación modular desarrollada en Python 3 (versión 3.10 o superior) empleando exclusivamente la librería estándar del lenguaje. Su propósito es estructurar y resolver tareas cotidianas mediante funciones reutilizables organizadas en 8 áreas operativas:
 
-1. **Gestión de compras:** Facturación con descuentos, tipos impositivos de IVA y desglose comercial del ticket.
-2. **Gestión económica:** Control de presupuestos, registro acumulativo de gastos con `*args` y reparto equitativo de cuentas.
+1. **Gestión de compras:** Cálculo de precios netos con descuentos, IVA y desglose comercial del ticket.
+2. **Gestión económica:** Control presupuestario, registro dinámico de gastos con `*args` y reparto equitativo de cuentas.
 3. **Conversores de unidades:** Motor de conversión de temperaturas (C, F, K), tiempos (s, m, h, d) y distancias (m, km, mi, ft).
-4. **Agenda de contactos:** Registro, búsqueda insensible a mayúsculas, eliminación y ordenación alfabética mediante funciones Lambda.
-5. **Gestión de inventario:** Control de existencias (entradas/salidas bloqueando saldos negativos) y alertas automáticas de rotura de stock.
-6. **Utilidades matemáticas:** Algoritmos recursivos puros para Factorial, sucesión de Fibonacci y Máximo Común Divisor (MCD mediante Euclides).
-7. **Análisis de información:** Cálculo estadístico descriptivo (media, mediana, moda, mínimo y máximo) y filtrado funcional dinámico.
-8. **Salir:** Cierre seguro y limpio del sistema con captura de interrupciones de teclado (`Ctrl + C`).
+4. **Agenda de contactos:** Registro en listas de diccionarios, búsqueda insensible a mayúsculas, eliminación y ordenación alfabética mediante lambdas.
+5. **Gestión de inventario:** Control de existencias (bloqueo de stock negativo) y alertas automáticas de reposición.
+6. **Utilidades matemáticas:** Algoritmos recursivos para Factorial, sucesión de Fibonacci y Máximo Común Divisor (Euclides).
+7. **Análisis de información:** Tratamiento estadístico descriptivo (media, mediana, moda, mínimo y máximo) y filtrado funcional.
+8. **Salir:** Cierre limpio del hilo de ejecución con captura de interrupciones de teclado (`Ctrl + C`).
 
 ---
 
-## 🎯 Arquitectura e Ingeniería del Software
+## 🎯 Arquitectura del Software
 
-- **Principio DRY (Don't Repeat Yourself):** Cada cálculo y transformación se declara una sola vez en funciones independientes y reutilizables.
-- **Desacoplamiento I/O:** Las funciones de cálculo en `src/funciones.py` no realizan `print()` ni `input()`, garantizando su reutilización e integración en cualquier interfaz o API.
-- **Modularidad:** Separación limpia del código fuente en `src/` y de la documentación formal en `docs/`.
-- **Robustez y Gestión de Excepciones:** Validación de entradas mediante bucles de control y bloques `try/except ValueError` para prevenir caídas de ejecución.
+- **Principio DRY (Don't Repeat Yourself):** Toda la lógica de cómputo reside en funciones independientes y puras dentro de `src/funciones.py`.
+- **Desacoplamiento I/O:** Las funciones de cálculo no contienen `print()` ni `input()`, garantizando que la misma lógica pueda ser consumida por la consola o por la interfaz gráfica.
+- **Doble Interfaz (Consola y GUI):** 
+  - `src/main.py`: Interfaz oficial por consola interactiva exigida en la rúbrica.
+  - `src/main_gui.py`: Extensión gráfica de escritorio desarrollada en `tkinter` nativo.
 
 ---
 
@@ -36,10 +37,11 @@
 ```text
 asistente-personal/
 ├── docs/
-│   ├── UD02_AsistentePython_IsmaelVargas.pdf   # Presentación técnica oficial en diapositivas
-│   └── DocuAsistente.pdf                      # Manual técnico exhaustivo del proyecto
+│   ├── UD02_AsistentePython_IsmaelVargas.pdf   # Memoria técnica oficial en formato académico / tesis
+│   └── DocuAsistente.pdf                      # Manual técnico exhaustivo del sistema
 ├── src/
-│   ├── main.py                                # Punto de entrada y menú interactivo
+│   ├── main.py                                # Punto de entrada oficial por consola
+│   ├── main_gui.py                            # Interfaz gráfica de escritorio (Tkinter)
 │   ├── funciones.py                           # Biblioteca central de lógica y servicios
 │   └── scripts/                               # Módulos temáticos independientes
 │       ├── ap_sin_parametros.py
@@ -59,16 +61,21 @@ asistente-personal/
 
 ### Requisitos
 - Python 3.10 o superior instalado.
-- Sin dependencias de terceros (no requiere `pip install`).
+- Sin dependencias externas de terceros (no requiere `pip install`).
 
-### Ejecución de la Aplicación Principal
+### 1. Ejecución de la Consola Oficial (Programa Principal)
 Desde la raíz del repositorio:
 ```bash
 python src/main.py
 ```
+*(Permite navegar por los 8 módulos obligatorios de la rúbrica, e incluye la opción 9 para lanzar la GUI si se desea).*
 
-### Ejecución de Suites de Pruebas Unitarias
-Cada módulo incluye su propio bloque de verificación ejecutable de forma aislada:
+### 2. Ejecución Directa de la Interfaz Gráfica (Tkinter)
+```bash
+python src/main_gui.py
+```
+
+### 3. Ejecución de Suites de Pruebas Unitarias
 ```bash
 python -m src.scripts.ap_sin_parametros
 python -m src.scripts.ap_un_parametro
@@ -101,5 +108,5 @@ python src/funciones.py
 ## 📑 Documentación Técnica Oficial
 
 Los entregables formales del proyecto se encuentran en la carpeta `docs/`:
-- **[docs/UD02_AsistentePython_IsmaelVargas.pdf](docs/UD02_AsistentePython_IsmaelVargas.pdf):** Presentación técnica oficial en diapositivas con evidencias de terminal real y desarrollo de los 7 puntos exigidos en la rúbrica.
-- **[docs/DocuAsistente.pdf](docs/DocuAsistente.pdf):** Manual técnico del proyecto con desglose de funciones, arquitectura modular y verificación.
+- **[docs/UD02_AsistentePython_IsmaelVargas.pdf](docs/UD02_AsistentePython_IsmaelVargas.pdf):** Memoria técnica académica en formato de tesis formal (8 páginas completas con portada, índice, abstract, análisis algorítmico y referencias).
+- **[docs/DocuAsistente.pdf](docs/DocuAsistente.pdf):** Manual técnico exhaustivo de especificación y arquitectura.
