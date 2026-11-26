@@ -123,7 +123,7 @@ python src/scripts/APLambda.py
 1. **[docs/UD02_AsistentePython_IsmaelVargas.pdf](docs/UD02_AsistentePython_IsmaelVargas.pdf):**  
    **Informe visual para presentar el proyecto (10 páginas).** Diseñado de forma esquemática y gráfica (iconos, tarjetas, trazas de recursión, mockups de terminal y de GUI, tablas y poco texto plano) para exponerlo de manera clara.
 2. **[docs/DocuAsistente.pdf](docs/DocuAsistente.pdf):**  
-   **Guía técnica paso a paso y manual de proyecto (8 páginas).** Documento de referencia para el desarrollador: bitácora de cómo se construyó cada fase, qué tenemos entre manos, catálogo completo de APIs y guion para defender el proyecto en 3 minutos.
+   **Guía técnica paso a paso y manual de proyecto (8 páginas).** Documento de referencia para el desarrollador: bitácora de cómo se construyó cada fase, qué tenemos entre manos, catálogo completo de APIs y resumen de funcionamiento y resolución de preguntas técnicas frecuentes.
 
 ---
 
